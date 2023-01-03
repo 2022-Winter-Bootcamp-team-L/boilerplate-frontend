@@ -11,6 +11,7 @@ function App() {
       <button
         onClick={() => {
           setCount(count + 1);
+          setoddeven();
         }}
       >
         +
@@ -22,7 +23,7 @@ function App() {
       >
         -
       </button>
-      <OddEvenResult count={count} />
+      <OddEvenResult count={count} oddeven={oddeven} setoddeven={setoddeven} />
     </div>
   );
 }
