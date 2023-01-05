@@ -100,7 +100,10 @@ import './App.scss'
     },[files])
     const preview = () => {
       if(!files) return false;
-      const imgEl = document.querySelector('.img__box');
+      const imgEl = document.querySelector('.DragDrop');
+      const text = document.querySelector('.fileuploadtext');
+      document.querySelector(".fileuploadtext").classList.add("nodisplay")
+ 
       const reader = new FileReader();
       reader.onload = () => 
       (imgEl.style.backgroundImage = `url(${reader.result})`);
@@ -108,11 +111,11 @@ import './App.scss'
       console.log(files);
     }
 
-    
+
     
     return (
-      <>
-      <div className ="img__box"></div>
+      
+      
       <div className="DragDrop">
         <input
           type="file"
@@ -120,6 +123,7 @@ import './App.scss'
           accept='image/*'
           style={{ display: "none" }} // label을 이용하여 구현하기에 없애줌
           onChange ={onChangeFiles}
+          
         />
   
         <label
@@ -128,12 +132,15 @@ import './App.scss'
           
           htmlFor="fileUpload"
           ref={dragRef}
+          onDragEnter={(e) => { e.preventDefault(); e.stopPropagation(); console.log('onDragEnter')}}
+                onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); console.log('dragover') }} // 추가한 이벤트. onDrop을 위해선 반드시 필요함.
+                onDrop={(e) => { e.preventDefault(); e.stopPropagation(); console.log('drop') }} style={{ width: "100%", height: "100%", display:"block" }}
         >
-          <div>파일 첨부</div>
+          <div className="fileuploadtext">파일 첨부</div>
         </label>
        
     </div>
-     </>
+     
     );
   };
 export default DragDrop;

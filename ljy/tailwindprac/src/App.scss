@@ -11,15 +11,33 @@
   justify-content: center;
   align-items: center;
 }
-
+@mixin dragdropwidth(){
+  width: 600px;
+  height: 600px;
+}
+.nodisplay{
+  display: none;
+}
+.fileuploadtext{
+  font-size: 100px;
+  text-align: center;
+  margin-top: 30px;
+}
 .DragDrop {
-  width: 100%;
+  background-color: antiquewhite;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
+  
+ 
+  @include dragdropwidth();
   @include alignCenter();
   
   &-File {
-    width: 400px;
-    height: 200px;
+    width: 600px;
+    height: 600px;
+    @include dragdropwidth();
     border: 2px solid black;
     border-radius: 10px;
     
@@ -32,9 +50,15 @@
     }
   }
 }
-.img__box{
-  min-width:fit-content;
-  height:300px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+// .img__box{
+//   background-size: contain;
+//   max-height: 100%;
+//   max-width: 100%;
+
+//   width:400px;
+//   height:400px;
+//   position:absolute;
+//   top:0;
+//   bottom:0;
+//   opacity:0;
+// }

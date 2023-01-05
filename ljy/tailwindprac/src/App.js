@@ -7,9 +7,9 @@ function App() {
   
   
   return (
-    <>
+    <div className='eeee'>
     <DragDrop/>
-    </>
+    </div>
   );
 }
 export default App;
